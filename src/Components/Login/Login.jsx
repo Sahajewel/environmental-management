@@ -25,11 +25,23 @@ export default function Login() {
                 .then(res=>{
                     console.log(res.data)
                 })
-                navigate(location?.state?location.state: "/")
+               
+             if(location?.state.includes("dashboard")){
+                navigate("/dashboard")
+             }
+           
+              else if(location?.state) {
+                navigate(location.state)
+               }
+            // else{
+            //     navigate("/")
+            // }
 
             })
             .catch((errors)=>{
-                alert("login failed", errors)
+                navigate("/")
+               console.log("login failed", errors)
+               
             })
             console.log(data)
           }

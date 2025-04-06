@@ -2,19 +2,25 @@ import React, { useContext } from 'react'
 import {  NavLink } from 'react-router-dom'
 import { AuthContext } from '../../Provider/AuthProvider'
 import axios from 'axios'
+import { useQueryClient } from '@tanstack/react-query'
 
 export default function Navbar() {
+  const queryClient = useQueryClient()
   const {signout, user} = useContext(AuthContext)
+  
   const log=()=>{
     signout()
+   
     .then(()=>{
      axios.post("http://localhost:5000/logout",{},{
       withCredentials:true
      })
+     queryClient.clear()
      .then((res)=>{
         console.log(res.data)
      })
     })
+
   }
  
   return (
@@ -29,6 +35,7 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/">Home</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/about">About</NavLink>
+             <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/products">Products</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/dashboard">Dashboard</NavLink>
        
           </ul>
@@ -39,6 +46,7 @@ export default function Navbar() {
         <ul className="menu menu-horizontal px-1 ">
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/">Home</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/about">About</NavLink>
+         <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/products">Products</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/dashboard">Dashboard</NavLink>
        
         </ul>

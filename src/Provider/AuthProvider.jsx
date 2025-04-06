@@ -25,14 +25,16 @@ export default function AuthProvider({children}) {
                 setLoading(false)
             } )
         }
-        return unsubscribe()
+        return ()=> unsubscribe()
     },[])
     const AuthInfo = {
         signup,
         signIn,
         signout,
         user,
-        loading
+        loading,
+        setUser,
+        setLoading
     }
   return (
     <div>

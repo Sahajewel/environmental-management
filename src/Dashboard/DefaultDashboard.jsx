@@ -1,20 +1,16 @@
-import React from 'react'
-import UseAdmin from '../HOOKS/UseAdmin/UseAdmin'
-import UseVolunteer from '../HOOKS/UseVolunteer/UseVolunteer';
-import UseDonor from '../HOOKS/UseDonor/UseDonor';
 import { Navigate } from 'react-router-dom';
+import UseRoles from '../HOOKS/UseRoles/UseRoles';
 
 
 export default function DefaultDashboard() {
+const [roles] = UseRoles()
+console.log(roles)
 
-  const [isAdmin] = UseAdmin();
-  const [isVolunteer] = UseVolunteer();
-  const [isDonor] = UseDonor();
-  if(isAdmin){
+  if(roles.admin){
    return <Navigate to="overview" replace/>
-  }else if(isVolunteer){
+  }else if(roles.volunteer){
     return <Navigate to="available-events" replace/>
-  }else if(isDonor){
+  }else if(roles.donor){
     return <Navigate to="my-donation" replace/>
   }
   return <p>loading....</p>

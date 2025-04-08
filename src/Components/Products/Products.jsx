@@ -1,14 +1,19 @@
-import axios from 'axios'
+
 import React, { useEffect, useState } from 'react'
+import UseAxiosSecure from '../../HOOKS/UseAxiosSecure/UseAxiosSecure'
 
 export default function Products() {
+  const axiosSecure = UseAxiosSecure()
 const [products, setProducts] = useState([])
 useEffect(()=>{
-    axios.get("http://localhost:5000/products")
+    axiosSecure.get("/products")
 .then((res)=>{
     setProducts(res.data)
 })
-},[])
+.catch(err=>{
+  console.log("error fetching products", err)
+})
+},[axiosSecure])
   return (
     <div>
       {

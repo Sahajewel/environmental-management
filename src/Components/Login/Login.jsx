@@ -39,7 +39,7 @@ export default function Login() {
 
             })
             .catch((errors)=>{
-                navigate("/")
+                // navigate("/")
                console.log("login failed", errors)
                
             })

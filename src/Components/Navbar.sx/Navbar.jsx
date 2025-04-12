@@ -3,6 +3,7 @@ import {  NavLink } from 'react-router-dom'
 import { AuthContext } from '../../Provider/AuthProvider'
 import axios from 'axios'
 import { useQueryClient } from '@tanstack/react-query'
+import DarkMood from '../DarkMood/DarkMood'
 
 export default function Navbar() {
   const queryClient = useQueryClient()
@@ -16,9 +17,7 @@ export default function Navbar() {
       withCredentials:true
      })
      queryClient.clear()
-     .then((res)=>{
-        console.log(res.data)
-     })
+    console.log("loogged out")
     })
 
   }
@@ -36,7 +35,9 @@ export default function Navbar() {
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/">Home</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/about">About</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/products">Products</NavLink>
+             <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/mobile">Mobile</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/dashboard">Dashboard</NavLink>
+           
        
           </ul>
         </div>
@@ -47,8 +48,9 @@ export default function Navbar() {
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/">Home</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/about">About</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/products">Products</NavLink>
+         <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/mobile">Mobile</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/dashboard">Dashboard</NavLink>
-       
+    
         </ul>
       </div>
       <div className="navbar-end">

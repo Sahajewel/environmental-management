@@ -15,6 +15,8 @@ import DonateNow from "./Dashboard/Donor/DonateNow/DonateNow"
 import AdminRoutes from "./Components/PrivateRoute/AdminRoutes"
 import VolunteerRotes from "./Components/PrivateRoute/VolunteerRotes"
 import DonorRoutes from "./Components/PrivateRoute/DonorRoutes"
+import Mobile from "./Components/Mobile/Mobile"
+import MobileCard from "./Components/Mobile/MobileCard"
 
 const router = createBrowserRouter([
  {
@@ -26,6 +28,8 @@ const router = createBrowserRouter([
     { path: "products", element: <PrivateRoute><Products /></PrivateRoute> },
     { path: "login", element: <Login /> },
     { path: "register", element: <Register /> },
+    { path: "mobile", element: <Mobile /> },
+    { path: "mobile/:id", element: <MobileCard />, loader:({params})=>fetch(`http://localhost:5000/mobile/${params.id}`).then(res=>res.json()) },
   ]
  },
  {

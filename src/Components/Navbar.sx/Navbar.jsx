@@ -3,7 +3,8 @@ import {  NavLink } from 'react-router-dom'
 import { AuthContext } from '../../Provider/AuthProvider'
 import axios from 'axios'
 import { useQueryClient } from '@tanstack/react-query'
-import DarkMood from '../DarkMood/DarkMood'
+
+import DarkLightMood from '../DarkLightMood/DarkLightMood'
 
 export default function Navbar() {
   const queryClient = useQueryClient()
@@ -37,7 +38,7 @@ export default function Navbar() {
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/products">Products</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/mobile">Mobile</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/dashboard">Dashboard</NavLink>
-           
+           <DarkLightMood></DarkLightMood>
        
           </ul>
         </div>
@@ -50,7 +51,7 @@ export default function Navbar() {
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/products">Products</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/mobile">Mobile</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/dashboard">Dashboard</NavLink>
-    
+        <DarkLightMood></DarkLightMood>
         </ul>
       </div>
       <div className="navbar-end">

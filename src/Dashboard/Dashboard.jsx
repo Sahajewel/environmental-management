@@ -9,7 +9,7 @@ const [roles] = UseRoles()
 const {admin, volunteer,donor} = roles
 console.log(roles)
     return (
-        <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
+        <div className='bg-white text-black dark:bg-gray-900 dark:text-white'>
             <Navbar></Navbar>
             <div className='flex min-h-screen'>
                 <div className='w-1/3 bg-gray-300 text-black text-center mr-10'>

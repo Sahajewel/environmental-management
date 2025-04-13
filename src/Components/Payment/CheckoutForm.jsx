@@ -52,7 +52,7 @@ export default  function CheckoutForm({mobile}) {
         }
        });
        if(confirmError){
-        setMessage("payment intent erroe", confirmError.message)
+        setMessage("payment intent error", confirmError.message)
         console.log( confirmError.message)
        }
        else{

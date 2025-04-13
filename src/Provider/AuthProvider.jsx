@@ -5,6 +5,7 @@ import { auth } from '../../public/firebase_init'
 export const AuthContext = createContext(null)
 export default function AuthProvider({children}) {
     const [user, setUser] = useState(null);
+    const [theme, setTheme] = useState('light');
     const [loading, setLoading] = useState(true)
     const signup = (email, password)=>{
         setLoading(true)
@@ -27,6 +28,20 @@ export default function AuthProvider({children}) {
         }
         return ()=> unsubscribe()
     },[])
+
+ 
+
+    const toggleTheme = () => {
+        setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+    };
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [theme]);
     const AuthInfo = {
         signup,
         signIn,
@@ -34,7 +49,9 @@ export default function AuthProvider({children}) {
         user,
         loading,
         setUser,
-        setLoading
+        setLoading,
+        toggleTheme,
+        theme
     }
   return (
     <div>

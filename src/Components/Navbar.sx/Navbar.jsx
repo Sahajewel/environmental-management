@@ -24,7 +24,7 @@ export default function Navbar() {
   }
  
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar  shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -56,8 +56,10 @@ export default function Navbar() {
       </div>
       <div className="navbar-end">
         {
-          user?<div>
+          user && user?<div className='flex items-center justify-center '>
             
+            <p className=' mr-4 text-lg '>{user?.displayName || "user"}</p>
+            <img className='w-10' src={user?.photoURL} alt="" />
              <button  onClick={log} className="mr-5 cursor-pointer">Logout</button>
           </div>
           :

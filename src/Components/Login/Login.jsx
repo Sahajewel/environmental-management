@@ -26,39 +26,37 @@ export default function Login() {
                     console.log(res.data)
                 })
                
-             if(location?.state.includes("dashboard")){
-                navigate("/dashboard")
-             }
-           
-              else if(location?.state) {
-                navigate(location.state)
-               }
-            // else{
-            //     navigate("/")
-            // }
+                if (location?.state && typeof location.state === "string" && location.state.includes("dashboard")) {
+                    navigate("/dashboard")
+                } else if (location?.state) {
+                    navigate(location.state)
+                } else {
+                    navigate("/")
+                }
+                
 
             })
             .catch((errors)=>{
                 // navigate("/")
-               console.log("login failed", errors)
+               alert("login failed", errors)
                
             })
             console.log(data)
           }
     return (
-        <div className="hero bg-base-200 min-h-[calc(100vh-100.5px)]">
+        <div className="hero  min-h-[calc(100vh-100.5px)]">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                   
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card  w-full max-w-sm shrink-0 shadow-2xl">
                     <form onSubmit={handleSubmit(onsubmit)} className="card-body">
                         <fieldset className="fieldset">
-                            <label className="fieldset-label">Email</label>
-                            <input {...register("email")} type="email" className="input" placeholder="Email" />
-                            <label className="fieldset-label">Password</label>
-                            <input {...register("password")} type="password" className="input" placeholder="Password" />
+                            <label className="">Email</label>
+                            <input {...register("email")} type="email" className="border p-4" placeholder="Email" />
+                            <label className="">Password</label>
+                            <input {...register("password")} type="password" className="border p-4" placeholder="Password" />
                             <div><a className="link link-hover">Forgot password?</a></div>
                             <button className="btn btn-neutral mt-4">Login</button>
                         </fieldset>

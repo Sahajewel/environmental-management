@@ -36,6 +36,7 @@ export default function Navbar() {
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/">Home</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/about">About</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/products">Products</NavLink>
+             <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/profils">Users Profile</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/mobile">Mobile</NavLink>
              <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/dashboard">Dashboard</NavLink>
            <DarkLightMood></DarkLightMood>
@@ -49,6 +50,7 @@ export default function Navbar() {
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/">Home</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/about">About</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/products">Products</NavLink>
+         <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/profils">Users Profile</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/mobile">Mobile</NavLink>
          <NavLink className={({isActive})=>isActive? "mr-5 bg-red-500 text-gray-500":"mr-5"} to="/dashboard">Dashboard</NavLink>
         <DarkLightMood></DarkLightMood>

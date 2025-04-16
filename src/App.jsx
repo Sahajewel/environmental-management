@@ -17,6 +17,7 @@ import VolunteerRotes from "./Components/PrivateRoute/VolunteerRotes"
 import DonorRoutes from "./Components/PrivateRoute/DonorRoutes"
 import Mobile from "./Components/Mobile/Mobile"
 import MobileCard from "./Components/Mobile/MobileCard"
+import UserProfile from "./Components/Users/UserProfile"
 
 const router = createBrowserRouter([
  {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
     { index: true, element: <Home /> },
     { path: "about", element: <PrivateRoute><About /></PrivateRoute> },
     { path: "products", element: <PrivateRoute><Products /></PrivateRoute> },
+    { path: "profils", element: <UserProfile></UserProfile> },
     { path: "login", element: <Login /> },
     { path: "register", element: <Register /> },
     { path: "mobile", element: <Mobile /> },

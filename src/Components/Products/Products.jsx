@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import UseAxiosSecure from '../../HOOKS/UseAxiosSecure/UseAxiosSecure'
+import Users from '../Users/Users'
 
 export default function Products() {
   const axiosSecure = UseAxiosSecure()
@@ -23,6 +24,7 @@ useEffect(()=>{
             </div>
         ))
       }
+      {/* <Users></Users> */}
     </div>
   )
 }

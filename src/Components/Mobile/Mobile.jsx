@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import UseMobile from '../../HOOKS/UseMobile/UseMobile'
 import { Link } from 'react-router-dom';
 
 
 export default function Mobile() {
     const [mobileData] = UseMobile();
+    const [searchMethod, setSearchMethod] = useState([])
+
+    const handleSearch = (e)=>{
+        const result = e.target.value.toLowerCase()
+        const single = mobileData.filter((sin)=>
+        sin.mobileBrand.toLowerCase().includes(result)
+        )
+        setSearchMethod(single)
+        
+    }
+    const mobilesShow = searchMethod.length > 0 ? searchMethod : mobileData
    
     return (
-        <div className="p-6 bg-gray-100 min-h-screen ">
+        <div className="p-6  min-h-screen ">
             <h1 className="text-3xl font-bold mb-6 text-center text-black">Mobile List</h1>
+              <input  onKeyUp={handleSearch}  type="text" className="border p-4" placeholder="search" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {mobileData.map((mobile) => (
+                {mobilesShow.map((mobile) => (
                     <div
                         key={mobile?.id}
                         className="bg-white p-5 rounded-2xl shadow-md hover:shadow-lg transition duration-300"

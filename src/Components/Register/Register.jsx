@@ -35,7 +35,9 @@ console.log(res.data)
         userProfileUpdate(data.name, res.data.data.display_url)
         .then((result)=>{
           console.log(result)
+          auth.currentUser.reload()
           setUser(auth.currentUser)
+        
           
           const userProfile = {
             email: data.email,
@@ -45,6 +47,7 @@ console.log(res.data)
           axios.post("http://localhost:5000/users", userProfile)
           .then((res) => {
             console.log(res.data)
+           
           })
           .catch((err) => {
             console.error("Error during user registration:", err)
@@ -53,6 +56,7 @@ console.log(res.data)
       })
         })
         navigate(location?.state? location.state:"/")
+      
 
        
 

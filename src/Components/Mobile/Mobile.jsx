@@ -7,6 +7,7 @@ export default function Mobile() {
     const [mobileData] = UseMobile();
     const [searchMethod, setSearchMethod] = useState([])
 
+
     const handleSearch = (e)=>{
         const result = e.target.value.toLowerCase()
         const single = mobileData.filter((sin)=>
@@ -16,11 +17,33 @@ export default function Mobile() {
         
     }
     const mobilesShow = searchMethod.length > 0 ? searchMethod : mobileData
-   
+
+    const handleSortLowToHigh=()=>{
+        const result = ([...mobileData].sort((a,b)=> a.price - b.price)) 
+        setSearchMethod(result)
+    }
+   const handleSortHighToLow = ()=>{
+    const result = ([...mobileData].sort((a,b)=>b.price-a.price))
+    setSearchMethod(result)
+   }
+   const handleSortAlphabeticallyAtoZ = ()=>{
+    const result = [...mobileData].sort((a,b)=>a.mobileBrand.localeCompare(b.mobileBrand))
+    setSearchMethod(result)
+   }
+   const handleSortAlphabeticallyZtoA = ()=>{
+    const result = [...mobileData].sort((a,b)=>b.mobileBrand.localeCompare(a.mobileBrand))
+    setSearchMethod(result)
+   }
+ 
     return (
         <div className="p-6  min-h-screen ">
             <h1 className="text-3xl font-bold mb-6 text-center text-black">Mobile List</h1>
               <input  onKeyUp={handleSearch}  type="text" className="border p-4" placeholder="search" />
+              <button className='cursor-pointer btn ml-10' onClick={handleSortLowToHigh}>Sorting Price by low to high </button>
+              <button className='cursor-pointer btn ml-10' onClick={handleSortHighToLow}>Sorting Price by high to low </button>
+              <button className='cursor-pointer btn ml-10' onClick={handleSortAlphabeticallyAtoZ}>Sorting by alphabetically A to Z</button>
+              <button className='cursor-pointer btn ml-10' onClick={handleSortAlphabeticallyZtoA}>Sorting by alphabetically Z to A </button>
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {mobilesShow.map((mobile) => (
                     <div
